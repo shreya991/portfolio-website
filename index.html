@@ -9,7 +9,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <div class="loader_bg">
+        <div class="loader">
+
+        </div>
+    </div>
     <nav>
         <logo class="logo"></logo>
         <div class="hamburger">
@@ -97,20 +101,20 @@
             <div class="footer__StyledMetadata-sc-4jwnt4-4 lgilVy"><a href="#" target="_blank" rel="nofollow noopener noreferrer" class="footer__StyledGitHubLink-sc-4jwnt4-5 fmPJnJ"><div>Designed by © Shreya Shandilya</div></a></div>
 
         </footer>
-    <script src="typed.js"></script>
+    <script src="js/typed.js"></script>
     <script>
         var typed = new Typed('.type', {
              strings: [
                  'Web Designer.', 
                  'Web Developer.',
-                 'Software Enginner.'
+                 'Software Engineer.'
                  ],
              typeSpeed:60,
              backSpeed:60,
              loop:true
         });
     </script>
-    <script src="app.js"></script>
+    <script src="js/app.js"></script>
     <script type="text/javascript">
         var marker = document.querySelector('#marker');
         var item = document.querySelectorAll('nav a');
@@ -125,6 +129,21 @@
                 indicator(e.target);
             });
         });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script>
+        setTimeout(function(){
+            $('.loader_bg').fadeToggle();
+        },2500);
+    </script>
+    <script>
+    $(document).ready(function(){
+       
+        $('.hamburger').click(function(){
+            $(this).toggleClass("active");
+            $(".nav-links").toggleClass("active")
+        });
+    });
     </script>
 </body>
 </html>

@@ -1,3 +1,59 @@
+.loader_bg
+{
+    position:fixed;
+    background:rgb(18, 46, 78);
+    z-index:99999;
+    width: 100%;
+    height:100%;
+
+}
+.loader
+{
+    border: 0 solid transparent;
+    border-radius: 50%;
+    width:150px;
+    height:150px;
+    position:absolute;
+    top:calc(50vh - 75px);
+    left:calc(50vw - 75px);
+}
+.loader::before,
+.loader::after
+{
+    content:'';
+    border:1em solid rgb(170, 50, 70);
+    border-radius: 50%;
+    width:inherit;
+    height:inherit;
+    position:absolute;
+    top:0;
+    left:0;
+    animation: loader 2s linear infinite;
+    opacity:0;
+}
+.loader::before
+{
+    animation-delay:.5s;
+}
+@keyframes loader
+{
+    0%
+    {
+        transform:scale(0);
+        opacity:0;
+    }
+    50%
+    {
+        opacity:1;
+    }
+    100%
+    {
+        transform:scale(1);
+        opacity:0;
+    }
+}
+
+
 *
 {
     margin: 0;
@@ -15,7 +71,7 @@ body
     margin:25px;
     padding:25px;
     margin-right: auto;
-    background-image:url(logo.png);
+    background-image:url(img/logo.png);
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -118,10 +174,16 @@ nav
     }
     .line
     {
+        position: relative;
         width:30px;
         height:3px;
         background: rgb(170, 50, 70);
         margin: 5px;
+        transition: .3s linear;
+    }
+    .line:nth-child(2)
+    {
+        width:20px;
     }
     .nav-links.open
     {
@@ -162,6 +224,28 @@ nav
     {
         opacity: 1;
     }
+    .hamburger
+    {
+        display: block;
+    }
+    .hamburger.active .line
+    {
+        background:rgb(4, 15, 32);
+    }
+    .hamburger.active .line:nth-child(1)
+    {
+        transform:rotate(-45deg) ;
+        top: 4px;
+    }
+    .hamburger.active .line:nth-child(2)
+    {
+        opacity:0;
+    }
+    .hamburger.active .line:nth-child(3)
+    {
+        transform:rotate(45deg) ;
+        bottom:12px;
+    }
 }
 nav #marker
 {
@@ -186,7 +270,7 @@ nav #marker
     margin-bottom: 10px;
     justify-content: center;
     align-items: center;
-    background-image:url(shreya.jpg);
+    background-image:url(img/shreya.jpg);
     background-size: contain;
     background-repeat: no-repeat;
 }
